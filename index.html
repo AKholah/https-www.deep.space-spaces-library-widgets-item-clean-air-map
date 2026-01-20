@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Air Quality Widget</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="widget">
+            <div class="widget-header">
+                <h1>🌍 Clean Air Quality Monitor</h1>
+                <p class="subtitle">Real-time air quality, weather, and location data</p>
+            </div>
+
+            <!-- Location Input -->
+            <div class="location-input-section">
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="locationInput" 
+                        placeholder="Enter city name or ZIP code..."
+                        class="location-input"
+                    >
+                    <button id="searchBtn" class="search-btn">Search</button>
+                    <button id="geolocateBtn" class="geolocation-btn" title="Use my current location">📍</button>
+                </div>
+                <div id="currentLocation" class="current-location"></div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tabs-container">
+                <button class="tab-button active" data-tab="air-quality">
+                    💨 Air Quality
+                </button>
+                <button class="tab-button" data-tab="weather-news">
+                    📰 Weather News
+                </button>
+                <button class="tab-button" data-tab="locations">
+                    📍 Locations
+                </button>
+                <button class="tab-button" data-tab="details">
+                    📊 Details
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tabs-content">
+                <!-- Air Quality Tab -->
+                <div id="air-quality" class="tab-content active">
+                    <div class="loading" id="airQualityLoading">
+                        <div class="spinner"></div>
+                        <p>Loading air quality data...</p>
+                    </div>
+                    <div id="airQualityContent" class="air-quality-content"></div>
+                </div>
+
+                <!-- Weather News Tab -->
+                <div id="weather-news" class="tab-content">
+                    <div class="loading" id="weatherNewsLoading">
+                        <div class="spinner"></div>
+                        <p>Loading weather news...</p>
+                    </div>
+                    <div id="weatherNewsContent" class="weather-news-content"></div>
+                </div>
+
+                <!-- Locations Tab -->
+                <div id="locations" class="tab-content">
+                    <div class="loading" id="locationsLoading">
+                        <div class="spinner"></div>
+                        <p>Loading nearby locations...</p>
+                    </div>
+                    <div id="locationsContent" class="locations-content"></div>
+                </div>
+
+                <!-- Details Tab -->
+                <div id="details" class="tab-content">
+                    <div class="loading" id="detailsLoading">
+                        <div class="spinner"></div>
+                        <p>Loading detailed information...</p>
+                    </div>
+                    <div id="detailsContent" class="details-content"></div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="widget-footer">
+                <p class="data-source">
+                    Data sources: OpenWeatherMap, WAQI (World Air Quality Index), Government Weather Services
+                </p>
+                <p class="last-updated" id="lastUpdated"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+            {error}
+          </div>
+        )}
+
+        {view === 'map' && (
+          <div className="space-y-6">
+            <AQILegend />
+            <MapView 
+              location={selectedLocation} 
+              aqiData={aqiData} 
+              loading={loading}
+            />
+          </div>
+        )}
+
+        {view === 'data' && (
+          <DataPanel aqiData={aqiData} loading={loading} />
+        )}
+
+        {view === 'predictions' && (
+          <PredictionsPanel predictions={predictions} loading={loading} />
+        )}
+
+        {view === 'recommendations' && (
+          <RecommendationsPanel recommendations={recommendations} loading={loading} />
+        )}
+      </div>
+    </div>
+  );
+};
+{import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import MapView from './components/MapView.jsx';
+import LocationSearch from './components/LocationSearch.jsx';
+import AQILegend from './components/AQILegend.jsx';
+import DataPanel from './components/DataPanel.jsx';
+import PredictionsPanel from './components/PredictionsPanel.jsx';import PredictionsPanel from './components/PredictionsPanel.jsx';
+          <div className="mb-6 p-5 rounded-xl" style={{ 
+            background: '#fef2f2', 
+            border: '1px solid #fecaca',
+            color: '#991b1b'
+          }}>
+        )}
+
+        {view === 'map' && (
+          <div className="space-y-6">
+            <AQILegend />
+            <MapView 
+              location={selectedLocation} 
+              aqiData={aqiData} 
+              loading={loading}
+            />
+          </sss
+        )}
+
+        {view === 'data' && (
+          <DataPanel aqiData={aqiData} loading={loading} />
+        )}
+
+        {view === 'predictions' && (
+          <PredictionsPanel predictions={predictions} loading={loading} />
+        )}
+
+        {view === 'recommendations' && (
+          <RecommendationsPanel recommendations={recommendations} loading={loading} />
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default CleanAirMap;
